@@ -1,0 +1,80 @@
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">We're Available 24×7 For Your Transportation Needs</p>
+    <div class="contact-grid">
+      <div class="contact-details-panel">
+        <div class="detail-card">
+          <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="detail-content">
+            <h4>Office Address</h4>
+            <p>Office No.311, 3rd Floor, Capital Square,<br>Near Mahindra Gate No.1, Chakan Talwade Road,<br>Pune, Maharashtra - 410501</p>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="detail-content">
+            <h4>Phone Numbers</h4>
+            <p><a href="tel:9371039184">9371039184</a><br><a href="tel:9991581136">9991581136</a></p>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="detail-content">
+            <h4>Email Address</h4>
+            <p><a href="mailto:shreeramexpresslogistics@gmail.com">shreeramexpresslogistics@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-panel">
+        <h3 class="panel-title">Send a Message / Query</h3>
+        <form #cForm="ngForm" (ngSubmit)="submitForm(cForm)">
+          <div class="form-success-banner" *ngIf="submitted">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><h5>Message Sent!</h5><p>Thank you, {{ form.name }}. Redirecting to WhatsApp...</p></div>
+          </div>
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" name="name" [(ngModel)]="form.name" required #nameInput="ngModel"
+              [class.input-error]="nameInput.invalid && nameInput.touched" placeholder="Enter your full name" class="form-control">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" [(ngModel)]="form.email" required email #emailInput="ngModel"
+                [class.input-error]="emailInput.invalid && emailInput.touched" placeholder="name@company.com" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Mobile Number *</label>
+              <input type="text" name="phone" [(ngModel)]="form.phone" required pattern="^[0-9]{10}$" #phoneInput="ngModel"
+                [class.input-error]="phoneInput.invalid && phoneInput.touched" placeholder="10-digit number" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Write Your Message *</label>
+            <textarea name="message" rows="4" [(ngModel)]="form.message" required #msgInput="ngModel"
+              [class.input-error]="msgInput.invalid && msgInput.touched"
+              placeholder="Describe your transportation requirement..." class="form-control textarea-control"></textarea>
+          </div>
+          <button type="submit" [disabled]="cForm.invalid || submitted" class="btn btn-primary btn-submit">
+            <span *ngIf="!submitted">Send Message</span>
+            <span *ngIf="submitted"><i class="fa-solid fa-spinner fa-spin"></i> Submitting...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-card">
+      <div class="map-header">
+        <span><i class="fa-solid fa-map-location-dot"></i> Office Location: Capital Square, Chakan</span>
+        <a href="https://maps.google.com/?q=Capital+Square+Chakan+Pune" target="_blank" class="btn-map-link">Open in Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+      <div class="map-iframe-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.471556943806!2d73.84759491490212!3d18.777085987258384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2cb2b7bc479bb%3A0xe54e60742cdcb445!2sCapital%20Square%2C%20Chakan!5e0!3m2!1sen!2sin!4v1688900000000!5m2!1sen!2sin"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

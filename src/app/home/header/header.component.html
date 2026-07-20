@@ -1,0 +1,53 @@
+<!-- Top bar with contact info -->
+<div class="top-contact-bar">
+  <div class="container contact-bar-container">
+    <div class="contact-info">
+      <a href="tel:9371039184"><i class="fa-solid fa-phone"></i> 9371039184</a>
+      <span class="bar-separator">|</span>
+      <a href="tel:9991581136">9991581136</a>
+      <span class="bar-separator">|</span>
+      <a href="mailto:shreeramexpresslogistics@gmail.com"><i class="fa-solid fa-envelope"></i> shreeramexpresslogistics@gmail.com</a>
+    </div>
+    <div class="branch-location">
+      <i class="fa-solid fa-location-dot"></i> Pune, India
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Header -->
+<header class="main-header glass">
+  <div class="container header-container">
+    <div class="logo-area" (click)="scrollToSection('home')">
+      <img src="assets/logo.png" alt="Shree Ram Express Logistics" class="header-logo">
+    </div>
+
+    <nav class="desktop-nav">
+      <a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">Home</a>
+      <a (click)="scrollToSection('services')" [class.active]="activeSection === 'services'">Services</a>
+      <a (click)="scrollToSection('why-us')" [class.active]="activeSection === 'why-us'">Why Choose Us</a>
+      <a (click)="scrollToSection('clients')" [class.active]="activeSection === 'clients'">Clients</a>
+      <a (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'">Contact</a>
+      <button class="btn btn-quote" (click)="openQuote.emit()">Get Quote</button>
+      <a href="https://wa.me/9371039184?text=Hi,%20I%20am%20interested%20in%20your%20services"
+         target="_blank" class="whatsapp-header-btn" aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
+          <path fill="#25D366" d="M24 7.5C14.9 7.5 7.5 14.9 7.5 24c0 3.2.9 6.2 2.5 8.8L7.5 40.5l7.9-2.5c2.5 1.4 5.4 2.2 8.6 2.2 9.1 0 16.5-7.4 16.5-16.5S33.1 7.5 24 7.5z"/>
+          <path fill="#fff" d="M32.5 28.1c-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.5-1.2 1.5-1.4 1.8-.3.3-.5.3-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-.9.2-.2.5-.5.7-.7.2-.2.3-.5.4-.7.1-.3 0-.5-.1-.7-.1-.2-1-2.4-1.4-3.3-.4-.9-.7-.7-1-.7h-.9c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.4 7 6.2 1 .4 1.7.7 2.3.9.9.3 1.8.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.9-.5z"/>
+        </svg>
+      </a>
+    </nav>
+
+    <button class="mobile-nav-toggle" (click)="toggleMobile()" aria-label="Toggle menu">
+      <i class="fa-solid" [ngClass]="mobileOpen ? 'fa-xmark' : 'fa-bars'"></i>
+    </button>
+  </div>
+
+  <div class="mobile-nav" [class.open]="mobileOpen">
+    <a (click)="scrollToSection('home')">Home</a>
+    <a (click)="scrollToSection('services')">Services</a>
+    <a (click)="scrollToSection('why-us')">Why Choose Us</a>
+    <a (click)="scrollToSection('clients')">Clients</a>
+    <a (click)="scrollToSection('contact')">Contact</a>
+    <button class="btn btn-quote mobile-btn-quote" (click)="openQuote.emit(); mobileOpen=false">Get Quote</button>
+  </div>
+</header>

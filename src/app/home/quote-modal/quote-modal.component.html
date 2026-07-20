@@ -1,0 +1,76 @@
+<div class="modal-backdrop" *ngIf="show">
+  <div class="modal-card glass">
+    <div class="modal-header">
+      <h3>Request a Transportation Quote</h3>
+      <button class="btn-close" (click)="close.emit()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <form #qForm="ngForm" (ngSubmit)="submitForm(qForm)">
+        <div class="form-success-banner" *ngIf="submitted">
+          <i class="fa-solid fa-circle-check"></i>
+          <div><h5>Quote Requested!</h5><p>Thank you, {{ form.name }}. Redirecting to WhatsApp...</p></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" name="name" [(ngModel)]="form.name" required #n="ngModel"
+              [class.input-error]="n.invalid && n.touched" placeholder="Enter your name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="text" name="phone" [(ngModel)]="form.phone" required pattern="^[0-9]{10}$" #p="ngModel"
+              [class.input-error]="p.invalid && p.touched" placeholder="10-digit number" class="form-control">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="email" [(ngModel)]="form.email" required email #e="ngModel"
+              [class.input-error]="e.invalid && e.touched" placeholder="email@domain.com" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Required Service *</label>
+            <select name="service" [(ngModel)]="form.service" required class="form-control select-control">
+              <option value="ftl">Full Truck Load (FTL)</option>
+              <option value="high-bed">High Bed Trailer</option>
+              <option value="low-bed">Low Bed Trailer</option>
+              <option value="semi-low">Semi Low Bed</option>
+              <option value="container">Container Transport</option>
+              <option value="shifting">Machine Shifting</option>
+              <option value="jcb">JCB Transport</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>From (Pickup Location) *</label>
+            <input type="text" name="from" [(ngModel)]="form.from" required #f="ngModel"
+              [class.input-error]="f.invalid && f.touched" placeholder="e.g. Pune, MH" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>To (Delivery Destination) *</label>
+            <input type="text" name="to" [(ngModel)]="form.to" required #t="ngModel"
+              [class.input-error]="t.invalid && t.touched" placeholder="e.g. Delhi, NCR" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Estimated Load Weight / Dimensions</label>
+          <input type="text" name="weight" [(ngModel)]="form.weight" placeholder="e.g. 18 Tons, 12m x 3m x 3.5m" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Cargo Description / Special Instructions</label>
+          <textarea name="message" rows="3" [(ngModel)]="form.message"
+            placeholder="Please detail cargo details, loading timelines, or trailer specifications..."
+            class="form-control textarea-control"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="close.emit()">Cancel</button>
+          <button type="submit" [disabled]="qForm.invalid || submitted" class="btn btn-primary">
+            <span *ngIf="!submitted">Request Estimate</span>
+            <span *ngIf="submitted"><i class="fa-solid fa-spinner fa-spin"></i> Submitting...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

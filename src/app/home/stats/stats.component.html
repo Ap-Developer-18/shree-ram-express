@@ -1,0 +1,8 @@
+<div class="stats-grid">
+  <div class="stat-card" *ngFor="let stat of stats">
+    <div class="stat-icon"><i class="fa-solid {{ stat.icon }}"></i></div>
+    <h3 class="stat-number">{{ stat.number }}</h3>
+    <p class="stat-label">{{ stat.label }}</p>
+    <p class="stat-sublabel" *ngIf="stat.sublabel">{{ stat.sublabel }}</p>
+  </div>
+</div>

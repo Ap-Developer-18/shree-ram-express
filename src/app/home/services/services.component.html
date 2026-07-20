@@ -1,0 +1,13 @@
+<section id="services" class="section services-section">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">We offer reliable and efficient transportation services across India for cargo of all sizes</p>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let s of services">
+        <div class="service-icon"><i class="fa-solid {{ s.icon }}"></i></div>
+        <h3 class="service-title">{{ s.title }}</h3>
+        <p class="service-desc">{{ s.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

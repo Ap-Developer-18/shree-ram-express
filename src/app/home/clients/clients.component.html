@@ -1,0 +1,26 @@
+<section id="clients" class="section clients-section">
+  <div class="container">
+    <h2 class="section-title">Our Trusted Clients</h2>
+    <p class="section-subtitle">We partner with leading infrastructure, manufacturing, and construction enterprises</p>
+    <div class="clients-grid">
+      <div class="client-logo-card" *ngFor="let c of clients">
+        <svg viewBox="0 0 200 80" width="100%" height="50">
+          <text x="50%" y="55%" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="700" font-size="20" fill="#64748b">{{ c }}</text>
+        </svg>
+      </div>
+    </div>
+    <div class="testimonials-container">
+      <h3 class="testimonials-header">What Our Clients Say</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" *ngFor="let t of testimonials">
+          <div class="stars">
+            <i class="fa-solid fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+          </div>
+          <p class="quote">"{{ t.quote }}"</p>
+          <h5 class="client-name">{{ t.name }}</h5>
+          <span class="client-title">{{ t.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

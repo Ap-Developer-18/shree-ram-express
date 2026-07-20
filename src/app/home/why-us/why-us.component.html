@@ -1,0 +1,29 @@
+<section id="why-us" class="section why-us-section">
+  <div class="container">
+    <div class="why-us-grid">
+      <div class="why-us-content">
+        <h2 class="section-title text-left">Why Choose Shree Ram Express Logistics?</h2>
+        <p class="why-us-intro">We pride ourselves on offering outstanding logistic planning and flawless shipping executions across the sub-continent.</p>
+        <ul class="differentiators-list">
+          <li *ngFor="let item of features">
+            <div class="check-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="check-text">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.desc }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-us-image-area">
+        <div class="image-wrapper">
+          <img src="assets/truck.png" alt="Shree Ram Express Truck" class="why-us-truck-img">
+          <div class="experience-badge animate-pulse">
+            <span class="badge-num">15+</span>
+            <span class="badge-lbl">Years of Safety</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-stats></app-stats>
+  </div>
+</section>
